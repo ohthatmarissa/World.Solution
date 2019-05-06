@@ -1,0 +1,24 @@
+@{
+    Layout = "_Layout";
+}
+
+<h1>@Model.GetName()</h1>
+
+<h3>Details:</h3>
+<table>
+    <tr>
+        <th>Country</th>
+        <th>Country Code</th>
+        <th>Continent</th>
+        <th>Region</th>
+        <th>Population</th>
+    </tr>
+    <tr>
+        <td>@Model.GetName()</td>
+        <td>@Model.GetCountryCode()</td>
+        <td>@Model.GetContinent()</td>
+        <td>@Model.GetRegion()</td>
+        <td>@Model.GetPopulation()</td>
+    </tr>
+</table>
+

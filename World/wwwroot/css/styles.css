@@ -1,0 +1,19 @@
+body {
+    color: rgb(224, 224, 224);
+    background-color: rgb(36, 49, 87);
+
+}
+
+a {
+    color: rgb(244, 244, 244);
+    text-decoration: none;   
+}
+
+table td {
+    padding: 20px;
+    
+}
+
+table th {
+    padding: 20px;
+}

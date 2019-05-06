@@ -1,0 +1,19 @@
+@{
+    Layout = "_Layout";
+}
+@using World.Models;
+
+<h1>Countries of the World!</h1>
+
+<form action="/countries" method="post">
+        <label for="Name">Category name</label>
+        <input id="categoryName" name="categoryName" type="text" required>
+        <button type="submit">Add</button>
+    </form>     
+
+<ul>
+    @foreach (Country country in @Model)
+    {
+        <li><a href="/countries/@country.GetName()">@country.GetName()</a></li>
+    }
+</ul>

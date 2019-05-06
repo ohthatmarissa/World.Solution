@@ -1,0 +1,25 @@
+@{
+    Layout = "_Layout";
+}
+@using World.Models;
+
+<h1>Cities of the World!</h1>
+
+<form action="/cities" method="post">
+        <label for="userSearch">Category name</label>
+        <input id="userSearch" name="userSearch" type="text" required>
+        <select>
+            <option value="Name">Name</option>
+            <option value="CountryCode">Country Code</option>
+            <option value="District">District</option>
+            <option value="Popluation">Population</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>     
+
+<ul>
+    @foreach (City city in @Model)
+    {
+        <li><a href="/cities/@city.GetName()">@city.GetName()</a></li>
+    }
+</ul>
