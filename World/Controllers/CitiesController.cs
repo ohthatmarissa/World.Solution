@@ -21,11 +21,11 @@ namespace World.Controllers
  
         }
 
-        [HttpPost("/cities")]
+        [HttpPost("/cities/{userSearch}")]
         public ActionResult Show(string userSearch, string category)
         {
-            List<City> results = City.Search()
-            return View();
+            List<City> results = City.Search(userSearch, category);
+            return View("Search", results);
         }
     }
 }

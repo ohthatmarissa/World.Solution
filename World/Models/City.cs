@@ -12,10 +12,6 @@ namespace World.Models
         private int _population;
         private int _id;
 
-
-        @"SELECT * FROM city WHERE name LIKE _variable"
-
-
         public City(string name, string countryCode, string district, int population, int id)
         {
             _name = name;
@@ -50,6 +46,31 @@ namespace World.Models
             return _id;
         }
         
+        public static List<City> Search(string search, string category)
+        {
+            List<City> results = new List<City>{};
+
+            MySqlConnection conn = DB.Connection();
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+            cmd.CommandText = @"SELECT * FROM city WHERE "+ category + " = '" + search + "'ORDER BY name ASC;";
+            MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+
+            while(rdr.Read())
+            {
+                string code = rdr.GetString(2);
+                string name = rdr.GetString(1);
+                string district = rdr.GetString(3);
+                int id = rdr.GetInt32(0);
+                int population = rdr.GetInt32(4);
+
+                City city = new City(name, code, district, population, id);
+                results.Add(city);
+            }
+
+            return results;
+        }
+
         public static City GetByName(string _name)
         {
             MySqlConnection conn = DB.Connection();

@@ -5,14 +5,13 @@
 
 <h1>Cities of the World!</h1>
 
-<form action="/cities" method="post">
+<form action="/cities/{userSearch}" method="post">
         <label for="userSearch">Category name</label>
         <input id="userSearch" name="userSearch" type="text" required>
-        <select>
+        <select name="category">
             <option value="Name">Name</option>
             <option value="CountryCode">Country Code</option>
             <option value="District">District</option>
-            <option value="Popluation">Population</option>
         </select>
         <button type="submit">Search</button>
     </form>     

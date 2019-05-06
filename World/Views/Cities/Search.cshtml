@@ -1,0 +1,11 @@
+@{
+    Layout = "_Layout";
+}
+@using World.Models;
+
+<ul>
+@foreach(City city in @Model)
+{
+        <li><a href="/cities/@city.GetName()">@city.GetName()</a></li>
+}
+</ul>
